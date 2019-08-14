@@ -3,14 +3,15 @@ const baseConf = require('./base.conf')
 const merge = require('webpack-merge')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const pkg = require(`${process.cwd()}/package.json`)
 
-const PREFIX = process.env.PREFIX
+const PREFIX = process.env.PREFIX || pkg.name
 const CDN_URL = `//web-cdn.meilly.cn/${PREFIX}/`
 
 module.exports = merge(baseConf, {
     mode: 'production',
     output: {
-        path: path.resolve(__dirname, '../dist'),
+        path: path.resolve(`${process.cwd()}/dist`),
         publicPath: CDN_URL,
         filename: 'js/[name].[hash:8].js',
         chunkFilename: 'js/[name].[hash:8].js',

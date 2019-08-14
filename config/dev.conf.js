@@ -10,14 +10,14 @@ module.exports = merge(baseConf, {
     mode: 'development',
     devtool: 'source-map',
     output: {
-        path: path.resolve(__dirname, '../dist'),
+        path: path.resolve(`${process.cwd()}/dist`),
         publicPath: '/',
         filename: 'js/[name].js',
         chunkFilename: 'js/[name].js',
         sourceMapFilename: '[file].map'
     },
     devServer: {
-        contentBase: [path.resolve(__dirname, '../dist'), path.resolve(__dirname, '../public')],
+        contentBase: [path.resolve(`${process.cwd()}/dist`), path.resolve(`${process.cwd()}/public`)],
         compress: true,
         host: ip.address(),
         port: 9000,

@@ -1,21 +1,25 @@
 const path = require('path')
-const theme = require('../package.json').theme
+const theme = require(`${process.cwd()}/package.json`).theme || require('../package').theme
 
 module.exports = {
     entry: {
-        beauty: ['@babel/polyfill', path.resolve(__dirname, '../src/index')]
+        beauty: ['@babel/polyfill', path.resolve(`${process.cwd()}/src/index`)]
     },
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
                 include: [
-                    path.resolve(__dirname, '../src')
+                    path.resolve(`${process.cwd()}/src`)
                 ],
                 exclude: [
-                    path.resolve(__dirname, '../node_modules')
+                    path.resolve(`${process.cwd()}/node_modules`)
                 ],
-                use: ['babel-loader']
+                use: [{
+                    loader: 'babel-loader', options: {
+                        configFile: path.resolve(__dirname, '../babel.config.js')
+                    }
+                }]
             },
             {
                 test: /^(?!.*global).*\.(css|less)$/,
@@ -37,7 +41,7 @@ module.exports = {
                     loader: 'less-loader',
                     options: { javascriptEnabled: true }
                 }],
-                exclude: [path.resolve(__dirname, '../node_modules')]
+                exclude: [path.resolve(`${process.cwd()}/node_modules`)]
             },
             {
                 test: /^(.*global).*\.(css|less)$/,
@@ -52,7 +56,7 @@ module.exports = {
                     loader: 'less-loader',
                     options: { javascriptEnabled: true, modifyVars: theme }
                 }],
-                exclude: [path.resolve(__dirname, '../node_modules')]
+                exclude: [path.resolve(`${process.cwd()}/node_modules`)]
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -68,7 +72,7 @@ module.exports = {
     },
     resolve: {
         alias: {
-            "@": path.resolve(__dirname, '../src')
+            "@": path.resolve(`${process.cwd()}/src`)
         },
         extensions: [".js", ".json", ".jsx", ".css", ".less"]
     },
