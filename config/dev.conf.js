@@ -21,9 +21,10 @@ module.exports = merge(baseConf, {
         compress: true,
         host: ip.address(),
         port: 9000,
+        publicPath: '/',
         hot: true,
         historyApiFallback: true,
-        stats: 'minimal'
+        stats: 'none'
     },
     plugins: [new webpack.DefinePlugin({
         "process.env.BASE_NAME": JSON.stringify('')
@@ -31,7 +32,7 @@ module.exports = merge(baseConf, {
         inject: false,
         title: '美栗',
         filename: 'index.html',
-        template: path.resolve(__dirname, '../src/document.ejs'),
+        template: path.resolve(`${process.cwd()}/src/document.ejs`) || path.resolve(__dirname, '../src/document.ejs'),
         chunks: ['vendor', 'beauty']
     })]
 })

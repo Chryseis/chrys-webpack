@@ -23,7 +23,7 @@ module.exports = merge(baseConf, {
         inject: false,
         title: '',
         filename: 'index.html',
-        template: path.resolve(__dirname, '../src/document.ejs'),
+        template: path.resolve(`${process.cwd()}/src/document.ejs`) || path.resolve(__dirname, '../src/document.ejs'),
         chunks: ['vendor', 'beauty']
     })]
 })

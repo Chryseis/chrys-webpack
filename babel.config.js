@@ -1,6 +1,8 @@
 const browserConf = require('./utils/browser.conf')
 
-module.exports = function() {
+module.exports = function(api) {
+    api.cache(true)
+
     return {
         "presets": [
             ["@babel/preset-env", { targets: browserConf }],

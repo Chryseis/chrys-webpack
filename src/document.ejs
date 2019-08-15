@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0"/>
+    <script src="//web-cdn.meilly.cn/stash/flexible.js"></script>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="icon" href="/favicon.png" type="image/x-icon"/>
+</head>
+<body>
+<noscript>Sorry, we need js to run correctly!</noscript>
+<div id="root">
+</div>
+<script src="<%= htmlWebpackPlugin.files['chunks'].vendor.entry %>"></script>
+<script src="<%= htmlWebpackPlugin.files['chunks'].beauty.entry %>"></script>
+<% if(webpackConfig.mode === 'production') { %>
+    <script defer
+            src="https://jic.talkingdata.com/app/h5/v1?appid=2F65664B662A4C80A0F941774CFD28FB&vn=mellyv1.0&vc=2.7.1"></script>
+<% } %>
+</body>
+</html>
