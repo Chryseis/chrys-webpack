@@ -13,7 +13,7 @@ module.exports = merge(baseConf, {
     output: {
         path: path.resolve(`${process.cwd()}/dist`),
         publicPath: CDN_URL,
-        filename: 'js/[name].[hash:8].js',
+        filename: 'js/[name]/[name].[hash:8].js',
         chunkFilename: 'js/[name].[hash:8].js',
         sourceMapFilename: '[file].map'
     },

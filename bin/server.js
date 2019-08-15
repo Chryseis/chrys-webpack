@@ -15,7 +15,7 @@ server.listen(options.port, options.host)
 process.on('uncaughtException', function(e) {
     /*处理异常*/
     if (e.code === 'EADDRINUSE') {
-        server.listen(options.port + 1, options.host)
+        server.listen(++options.port, options.host)
     } else {
         console.log(e.message)
     }
