@@ -4,7 +4,10 @@ const baseConf = require('./base.conf')
 const merge = require('webpack-merge')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { isSpa } = require('../utils')
 
+let entry={}
+let plugins=[]
 
 module.exports = merge(baseConf, {
     mode: 'development',
