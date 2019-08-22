@@ -4,13 +4,22 @@ const baseConf = require('./base.conf')
 const merge = require('webpack-merge')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { isSpa } = require('../utils')
+const { readCompileFiles, readTemplateFile } = require('../utils')
 
-let entry={}
-let plugins=[]
+let entry = readCompileFiles()
+let htmlWebpackPlugin = Object.keys(entry).map(chunkName => {
+    return new HtmlWebpackPlugin({
+        inject: false,
+        title: '美栗',
+        filename: `${chunkName}.html`,
+        template: readTemplateFile(),
+        chunks: ['vendor', chunkName]
+    })
+})
 
 module.exports = merge(baseConf, {
     mode: 'development',
+    entry,
     devtool: 'source-map',
     output: {
         path: path.resolve(`${process.cwd()}/dist`),
@@ -27,15 +36,9 @@ module.exports = merge(baseConf, {
         publicPath: '/',
         hot: true,
         historyApiFallback: true,
-        stats: 'none'
+        stats: 'minimal'
     },
     plugins: [new webpack.DefinePlugin({
         "process.env.BASE_NAME": JSON.stringify('')
-    }), new HtmlWebpackPlugin({
-        inject: false,
-        title: '美栗',
-        filename: 'index.html',
-        template: path.resolve(`${process.cwd()}/src/document.ejs`) || path.resolve(__dirname, '../src/document.ejs'),
-        chunks: ['vendor', 'beauty']
-    })]
+    })].concat(htmlWebpackPlugin)
 })

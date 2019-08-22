@@ -12,8 +12,9 @@
 <noscript>Sorry, we need js to run correctly!</noscript>
 <div id="root">
 </div>
-<script src="<%= htmlWebpackPlugin.files['chunks'].vendor.entry %>"></script>
-<script src="<%= htmlWebpackPlugin.files['chunks'].beauty.entry %>"></script>
+<% htmlWebpackPlugin.files.js.forEach(function(js) { %>
+    <script src="<%= js %>"></script>
+<% }) %>
 <% if(webpackConfig.mode === 'production') { %>
     <script defer
             src="https://jic.talkingdata.com/app/h5/v1?appid=2F65664B662A4C80A0F941774CFD28FB&vn=mellyv1.0&vc=2.7.1"></script>

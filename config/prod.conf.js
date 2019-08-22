@@ -5,17 +5,26 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const pkg = require(`${process.cwd()}/package.json`)
+const { readCompileFiles, readTemplateFile } = require('../utils')
 
 const PREFIX = process.env.PREFIX || pkg.name
 const CDN_URL = `//web-cdn.meilly.cn/${PREFIX}/`
 
-let entry = {}
-let output = {}
-let plugins = []
+let entry = readCompileFiles()
+let htmlWebpackPlugin = Object.keys(entry).map(chunkName => {
+    return new HtmlWebpackPlugin({
+        inject: false,
+        title: '美栗',
+        filename: `${chunkName}.html`,
+        template: readTemplateFile(),
+        chunks: ['vendor', chunkName]
+    })
+})
 
 module.exports = merge(baseConf, {
     name: 'beauty',
     mode: 'production',
+    entry,
     output: {
         path: path.resolve(`${process.cwd()}/dist`),
         publicPath: CDN_URL,
@@ -25,11 +34,5 @@ module.exports = merge(baseConf, {
     },
     plugins: [new webpack.DefinePlugin({
         "process.env.BASE_NAME": JSON.stringify(`/${process.env.PREFIX}`)
-    }), new HtmlWebpackPlugin({
-        inject: false,
-        title: '',
-        filename: 'index.html',
-        template: path.resolve(`${process.cwd()}/src/document.ejs`) || path.resolve(__dirname, '../src/document.ejs'),
-        chunks: ['vendor', 'beauty']
-    }), new CleanWebpackPlugin()]
+    }), new CleanWebpackPlugin()].concat(htmlWebpackPlugin)
 })

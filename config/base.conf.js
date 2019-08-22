@@ -2,9 +2,6 @@ const path = require('path')
 const theme = require(`${process.cwd()}/package.json`).theme || require('../package').theme
 
 module.exports = {
-    entry: {
-        beauty: ['@babel/polyfill', path.resolve(`${process.cwd()}/src/index`)]
-    },
     module: {
         rules: [
             {
