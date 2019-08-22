@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const webpackDevServer = require('webpack-dev-server')
 const webpack = require('webpack')
 const devConf = require('../config/dev.conf')

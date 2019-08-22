@@ -1,12 +1,12 @@
 {
   "name": "beauty-webpack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "webpack",
   "main": "index.js",
   "bin": {
-    "beauty-start": "bin/server.js",
-    "beauty-build": "bin/build.js",
-    "beauty-analyze": "bin/analyze.js"
+    "beauty-start": "scripts/server.js",
+    "beauty-build": "scripts/build.js",
+    "beauty-analyze": "scripts/analyze.js"
   },
   "scripts": {
     "test": "test"

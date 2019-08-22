@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const webpack = require('webpack')
 const analyzeConf = require('../config/analyze.conf')
 

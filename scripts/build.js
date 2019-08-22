@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const webpack = require('webpack')
 const prodConf = require('../config/prod.conf')
 const log = require('../utils/log')
