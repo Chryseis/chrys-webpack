@@ -4,9 +4,7 @@
   "description": "webpack",
   "main": "index.js",
   "bin": {
-    "beauty-start": "scripts/server.js",
-    "beauty-build": "scripts/build.js",
-    "beauty-analyze": "scripts/analyze.js"
+    "beauty": "bin/beauty.js"
   },
   "scripts": {
     "test": "test"
