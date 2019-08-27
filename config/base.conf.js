@@ -1,5 +1,7 @@
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const theme = require(`${process.cwd()}/package.json`).theme || require('../package').theme
+const beautyConf = require('../utils/beautyrc')
 
 module.exports = {
     module: {
@@ -20,7 +22,12 @@ module.exports = {
             },
             {
                 test: /^(?!.*global).*\.(css|less)$/,
-                use: ['style-loader', {
+                use: [beautyConf.isExtractCss ? {
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        hmr: process.env.NODE_ENV === 'development'
+                    }
+                } : 'style-loader', {
                     loader: 'css-loader',
                     options: {
                         modules: {
@@ -65,16 +72,25 @@ module.exports = {
                     }
                 }]
             },
+            {
+                test: /\.(mp4|avi|mp3)(\?.*)?$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: 'media/[name][hash:7].[ext]'
+                    }
+                }]
+            }
         ],
     },
     resolve: {
-        alias: {
+        alias: beautyConf.alias || {
             "@": path.resolve(`${process.cwd()}/src`)
         },
         extensions: [".js", ".json", ".jsx", ".css", ".less"]
     },
     optimization: {
-        splitChunks: {
+        splitChunks: beautyConf.splitChunks || {
             cacheGroups: {
                 vendor: {
                     name: 'vendor',

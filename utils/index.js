@@ -6,7 +6,7 @@ module.exports = {
     readCompileFiles: function() {
         if (fs.existsSync(`${process.cwd()}/src/index.jsx`) || fs.existsSync(`${process.cwd()}/src/index.js`)) {
             return {
-                beauty: `${process.cwd()}/src/index`
+                beauty: ['@babel/polyfill', `${process.cwd()}/src/index`]
             }
         } else {
             let rootPath = `${process.cwd()}/src`
@@ -18,7 +18,7 @@ module.exports = {
             return files.reduce((entry, fileName) => {
                 let stats = fs.statSync(`${rootPath}/${fileName}`)
                 if (stats.isDirectory()) {
-                    entry[fileName] = `${rootPath}/${fileName}`
+                    entry[fileName] = ['@babel/polyfill', `${rootPath}/${fileName}`]
                 }
                 return entry
             }, {})

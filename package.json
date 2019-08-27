@@ -1,6 +1,6 @@
 {
   "name": "beauty-webpack",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "webpack",
   "main": "index.js",
   "bin": {
@@ -37,10 +37,9 @@
     "ip": "^1.1.5",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.8.0",
     "postcss-loader": "^3.0.0",
     "postcss-pxtorem": "^4.0.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
     "style-loader": "^1.0.0",
     "url-loader": "^2.1.0",
     "webpack": "^4.39.1",
@@ -48,6 +47,10 @@
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2",
     "webpack-merge": "^4.2.1"
+  },
+  "devDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "theme": {
     "hd": "2px"
