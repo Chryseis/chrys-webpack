@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const pkg = require(`${process.cwd()}/package.json`)
 const { readCompileFiles, readTemplateFile } = require('../utils')
-const beautyConf = require('../utils/beautyrc')
+const beautyConf = require('../utils/beautyrc')()
 
 const PREFIX = process.env.PREFIX || pkg.name
 const CDN_URL = `//web-cdn.meilly.cn/${PREFIX}/`

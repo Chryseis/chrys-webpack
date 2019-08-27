@@ -1,7 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const theme = require(`${process.cwd()}/package.json`).theme || require('../package').theme
-const beautyConf = require('../utils/beautyrc')
+const beautyConf = require('../utils/beautyrc')()
 
 module.exports = {
     module: {

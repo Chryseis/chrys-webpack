@@ -6,7 +6,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { readCompileFiles, readTemplateFile } = require('../utils')
-const beautyConf = require('../utils/beautyrc')
+const beautyConf = require('../utils/beautyrc')()
 
 let entry = readCompileFiles()
 let htmlWebpackPlugin = Object.keys(entry).map(chunkName => {
