@@ -1,6 +1,6 @@
 {
   "name": "beauty-webpack",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "webpack",
   "main": "index.js",
   "bin": {
@@ -27,6 +27,7 @@
     "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.5.5",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "chalk": "^2.4.2",
