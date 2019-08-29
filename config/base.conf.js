@@ -49,7 +49,12 @@ module.exports = {
             },
             {
                 test: /^(.*global).*\.(css|less)$/,
-                use: ['style-loader', 'css-loader', {
+                use: [beautyConf.isExtractCss ? {
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        hmr: process.env.NODE_ENV === 'development'
+                    }
+                } : 'style-loader', 'css-loader', {
                     loader: 'postcss-loader',
                     options: {
                         config: {
