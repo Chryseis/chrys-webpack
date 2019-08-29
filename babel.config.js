@@ -1,4 +1,5 @@
 const browserConf = require('./utils/browser.conf')
+const beautyConf = require('./utils/beautyrc')()
 
 module.exports = function(api) {
     api.cache(true)
@@ -26,6 +27,6 @@ module.exports = function(api) {
             ],
             "@babel/plugin-proposal-json-strings",
             "@babel/plugin-proposal-optional-chaining"
-        ]
+        ].concat(beautyConf.babelPlugins || [])
     }
 }

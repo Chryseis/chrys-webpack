@@ -68,6 +68,29 @@ module.exports = {
                 exclude: [path.resolve(`${process.cwd()}/node_modules`)]
             },
             {
+                test: /.(css|less)$/,
+                use: [beautyConf.isExtractCss ? {
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        hmr: process.env.NODE_ENV === 'development'
+                    }
+                } : 'style-loader', {
+                    loader: 'css-loader'
+                }, {
+                    loader: 'postcss-loader',
+                    options: {
+                        config: {
+                            path: path.resolve(__dirname, '../postcss.config.js')
+                        }
+                    }
+                }, {
+                    loader: 'less-loader',
+                    options: { javascriptEnabled: true }
+                }],
+                include: [path.resolve(`${process.cwd()}/node_modules`)],
+                exclude: [path.resolve(`${process.cwd()}/src`)]
+            },
+            {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 use: [{
                     loader: 'url-loader',
