@@ -1,1 +1,1 @@
-# chrys-webpack
+# Beauty-webpack
