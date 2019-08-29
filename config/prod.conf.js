@@ -38,7 +38,5 @@ module.exports = merge(baseConf, {
         chunkFilename: 'js/[name].[hash:8].js',
         sourceMapFilename: '[file].map'
     },
-    plugins: [new webpack.DefinePlugin({
-        "process.env.BASE_NAME": JSON.stringify(`/${process.env.PREFIX}`)
-    }), new CleanWebpackPlugin()].concat(htmlWebpackPlugin, miniCssExtractPlugin)
+    plugins: [new webpack.DefinePlugin(beautyConf.define || {}), new CleanWebpackPlugin()].concat(htmlWebpackPlugin, miniCssExtractPlugin)
 })

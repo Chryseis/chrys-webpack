@@ -44,7 +44,5 @@ module.exports = merge(baseConf, {
         historyApiFallback: true,
         stats: 'minimal'
     },
-    plugins: [new webpack.DefinePlugin({
-        "process.env.BASE_NAME": JSON.stringify('')
-    })].concat(htmlWebpackPlugin, miniCssExtractPlugin)
+    plugins: [new webpack.DefinePlugin(beautyConf.define || {})].concat(htmlWebpackPlugin, miniCssExtractPlugin)
 })
