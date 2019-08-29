@@ -1,6 +1,6 @@
 {
   "name": "beauty-webpack",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "webpack",
   "main": "index.js",
   "bin": {
