@@ -23,8 +23,8 @@ let htmlWebpackPlugin = Object.keys(entry).map(chunkName => {
     })
 })
 let miniCssExtractPlugin = beautyConf.isExtractCss ? new MiniCssExtractPlugin({
-    filename: 'css/[name].css',
-    chunkFilename: 'css/[id].css'
+    filename: 'css/[name].[hash:8].css',
+    chunkFilename: 'css/[name].[hash:8].css'
 }) : []
 
 module.exports = merge(baseConf, {
