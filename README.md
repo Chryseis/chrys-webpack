@@ -11,7 +11,6 @@ npm install beauty-webpack --save-dev
 ```json
 //package.json
 {
-  ...,
   "script": {
       "start": "beauty start",
       "build": "beauty build",
