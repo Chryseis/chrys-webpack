@@ -7,13 +7,15 @@ npm install beauty-webpack --save-dev
 ```
 ## Usage
 ### 命令
-#### 开发
 ```json
 //package.json
 {
   "script": {
+      //开发
       "start": "beauty start",
+      //打包
       "build": "beauty build",
+      //分析
       "analyze": "beauty analyze"
   }
 }
