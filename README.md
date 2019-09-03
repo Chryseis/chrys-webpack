@@ -6,6 +6,20 @@
 npm install beauty-webpack --save-dev
 ```
 ## Usage
+### 命令
+#### 开发
+```json
+//package.json
+{
+  ...,
+  "script": {
+      "start": "beauty start",
+      "build": "beauty build",
+      "analyze": "beauty analyze"
+  }
+}
+```
+
 ### Spa项目
 #### 目录结构
 ```
