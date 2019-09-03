@@ -59,9 +59,7 @@ isExtractCss|是否提取公共样式|
 alias|别名|默认@为src文件夹
 splitChunks|分包策略|参数webpack splitChunks
 chunks|js分包模块|配合entry 
-define|定义项目全局变量|{"process.NODE.env":{
-    
-}}
+define|定义项目全局变量| {"process.NODE.env":{...}}
 
 ### 模版文件
 默认有模板文件，需要自定义可以在src目录下添加document.ejs 配置参数参考[html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)
