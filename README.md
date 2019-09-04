@@ -67,14 +67,15 @@ ReactDOM.render(<Home/>, document.querySelector('#root'))
 
 属性|说明|备注
 ---|---|---
-entry|入口配置(只限Spa项目)|参考webpack entry
-output|输出配置| 参考webpack output
-publicPath|文件输出目录|参考webpack publicPath
+entry|入口配置(只限Spa项目)|参考[webpack entry](https://www.webpackjs.com/configuration/entry-context/#entry)
+output|输出配置| 参考[webpack output](https://www.webpackjs.com/configuration/output/)
+publicPath|文件输出目录|参考[webpack publicPath](https://www.webpackjs.com/configuration/output/#output-publicpath)
 isExtractCss|是否提取公共样式|
 alias|别名|默认@为src文件夹
-splitChunks|分包策略|参数webpack splitChunks
+splitChunks|分包策略|参数[webpack splitChunks](https://webpack.js.org/plugins/split-chunks-plugin/#root)
 chunks|js分包模块|配合entry 
 define|定义项目全局变量| {"process.NODE.env":{...}}
+devServer|开发服务器配置|参考[webpack devServer](https://www.webpackjs.com/configuration/dev-server/)
 
 ### 模版文件
 默认有模板文件，需要自定义可以在src目录下添加document.ejs 配置参数参考[html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)
