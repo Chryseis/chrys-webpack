@@ -10,7 +10,8 @@
     "test": "test"
   },
   "keywords": [
-    "beauty"
+    "beauty",
+    "webpack"
   ],
   "author": "allen",
   "license": "ISC",
