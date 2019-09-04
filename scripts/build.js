@@ -19,5 +19,5 @@ webpack(prodConf, (err, stats) => {
         chunkModules: false
     }) + '\r\n')
 
-    log('build success!')
+    log.success('build success!')
 })
