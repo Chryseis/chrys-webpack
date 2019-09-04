@@ -12,7 +12,7 @@ let entry = readCompileFiles()
 let htmlWebpackPlugin = Object.keys(entry).map(chunkName => {
     return new HtmlWebpackPlugin({
         inject: false,
-        title: '美栗',
+        title: beautyConf.title || '美栗',
         filename: `${chunkName === 'beauty' ? 'index' : chunkName}.html`,
         template: readTemplateFile(),
         chunks: beautyConf.chunks || ['vendor', chunkName]

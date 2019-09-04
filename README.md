@@ -76,6 +76,7 @@ splitChunks|分包策略|参数[webpack splitChunks](https://webpack.js.org/plug
 chunks|js分包模块|配合entry 
 define|定义项目全局变量| {"process.NODE.env":{...}}
 devServer|开发服务器配置|参考[webpack devServer](https://www.webpackjs.com/configuration/dev-server/)
+title|输出页面的title|
 
 ### 模版文件
 默认有模板文件，需要自定义可以在src目录下添加document.ejs 配置参数参考[html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)
