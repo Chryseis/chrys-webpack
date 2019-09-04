@@ -6,22 +6,33 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const pkg = require(`${process.cwd()}/package.json`)
-const { readCompileFiles, readTemplateFile } = require('../utils')
+const { readCompileFiles, readTemplateFile, isSpa } = require('../utils')
 const beautyConf = require('../utils/beautyrc')()
 
 const PREFIX = process.env.PREFIX || pkg.name
 const CDN_URL = `//web-cdn.meilly.cn/${PREFIX}/`
 
 let entry = readCompileFiles()
-let htmlWebpackPlugin = Object.keys(entry).map(chunkName => {
-    return new HtmlWebpackPlugin({
+let htmlWebpackPlugin
+if (isSpa) {
+    htmlWebpackPlugin = new HtmlWebpackPlugin({
         inject: false,
         title: beautyConf.title || '美栗',
-        filename: `${chunkName}.html`,
+        filename: 'index.html',
         template: readTemplateFile(),
-        chunks: beautyConf.chunks || ['vendor', chunkName]
+        chunks: beautyConf.chunks || ['vendor', 'beauty']
     })
-})
+} else {
+    htmlWebpackPlugin = Object.keys(beautyConf.entry || entry).map(chunkName => {
+        return new HtmlWebpackPlugin({
+            inject: false,
+            title: beautyConf.title || '美栗',
+            filename: `${chunkName === 'beauty' ? 'index' : chunkName}.html`,
+            template: readTemplateFile(),
+            chunks: beautyConf.chunks || ['vendor', chunkName]
+        })
+    })
+}
 let miniCssExtractPlugin = beautyConf.isExtractCss ? new MiniCssExtractPlugin({
     filename: 'css/[name].[hash:8].css',
     chunkFilename: 'css/[name].[hash:8].css'

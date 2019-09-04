@@ -3,7 +3,8 @@ const path = require('path')
 const beautyConf = require('./beautyrc')()
 
 module.exports = {
-    readCompileFiles: function() {
+    isSpa: fs.existsSync(`${process.cwd()}/src/index.jsx`) || fs.existsSync(`${process.cwd()}/src/index.js`),
+    readCompileFiles: function () {
         if (fs.existsSync(`${process.cwd()}/src/index.jsx`) || fs.existsSync(`${process.cwd()}/src/index.js`)) {
             return {
                 beauty: ['@babel/polyfill', `${process.cwd()}/src/index`]
@@ -24,7 +25,7 @@ module.exports = {
             }, {})
         }
     },
-    readTemplateFile: function() {
+    readTemplateFile: function () {
         if (fs.existsSync(`${process.cwd()}/src/document.ejs`)) {
             return `${process.cwd()}/src/document.ejs`
         } else {
