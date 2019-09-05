@@ -67,6 +67,7 @@ ReactDOM.render(<Home/>, document.querySelector('#root'))
 允许自定义添加配置文件修改webpack配置
 需要在根目录添加.beautyrc.js文件
 
+#### 属性
 属性|说明|备注
 ---|---|---
 entry|入口配置(只限Spa项目)|参考[webpack entry](https://www.webpackjs.com/configuration/entry-context/#entry)
@@ -79,6 +80,43 @@ chunks|js分包模块|配合entry
 define|定义项目全局变量|参考[webpack define](https://webpack.js.org/plugins/define-plugin/#root)
 devServer|开发服务器配置|参考[webpack devServer](https://www.webpackjs.com/configuration/dev-server/)
 title|输出页面的title|
+
+#### 栗子
+```
+//.beautyrc.js
+const path = require('path')
+const PREFIX = process.env.PREFIX
+const env = process.env.NODE_ENV
+
+module.exports = {
+    entry: {
+        track: path.resolve(__dirname, './src/utils/track'),
+        beauty: ['@babel/polyfill', path.resolve(__dirname, './src/index')]
+    },
+    chunks: ['vendor', 'beauty', 'track'],
+    isExtractCss: env !== 'development',
+    define: {
+        "process.env.BASE_NAME": JSON.stringify(PREFIX || '')
+    },
+    splitChunks: {
+        maxAsyncRequests: Infinity,
+        maxInitialRequests: Infinity,
+        minSize: 10000,
+        cacheGroups: {
+            vendor: {
+                name: 'vendor',
+                chunks: 'all',
+                test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+            },
+            clipboard: {
+                name: 'clipboard',
+                chunks: 'all',
+                test: /[\\/]node_modules[\\/](clipboard)[\\/]/,
+            }
+        }
+    }
+}
+```
 
 ### 模版文件
 默认有模板文件，需要自定义可以在src目录下添加document.ejs 配置参数参考[html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)
