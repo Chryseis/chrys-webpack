@@ -7,7 +7,7 @@ npm install beauty-webpack --save-dev
 ```
 ## Usage
 ### 命令
-```json
+```bash
 //package.json
 {
   "script": {
@@ -74,7 +74,7 @@ isExtractCss|是否提取公共样式|
 alias|别名|默认@为src文件夹
 splitChunks|分包策略|参考[webpack splitChunks](https://webpack.js.org/plugins/split-chunks-plugin/#root)
 chunks|js分包模块|配合entry 
-define|定义项目全局变量|{"process.env.BASE_NAME": JSON.stringify(PREFIX || '')}参考[webpack define](https://webpack.js.org/plugins/define-plugin/#root)
+define|定义项目全局变量|参考[webpack define](https://webpack.js.org/plugins/define-plugin/#root)
 devServer|开发服务器配置|参考[webpack devServer](https://www.webpackjs.com/configuration/dev-server/)
 title|输出页面的title|
 
