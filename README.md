@@ -53,7 +53,7 @@ ReactDOM.render(<Home/>, document.querySelector('#root'))
 ```
 #### 入口文件
 ```jsx harmony
-//src/index.js
+//src/(folder)/index.js
 import React from 'react'
 import ReactDOM from 'react-dom'
 
