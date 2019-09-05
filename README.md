@@ -1,4 +1,6 @@
 # Beauty-webpack
+![NPM](https://img.shields.io/npm/l/beauty-webpack)
+
 ## Motive
 快速搭建前端项目，减少webpack配置学习成本
 ## Install
