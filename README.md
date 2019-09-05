@@ -80,8 +80,10 @@ chunks|js分包模块|配合entry
 define|定义项目全局变量|参考[webpack define](https://webpack.js.org/plugins/define-plugin/#root)
 devServer|开发服务器配置|参考[webpack devServer](https://www.webpackjs.com/configuration/dev-server/)
 title|输出页面的title|
+port|开发服务器端口号
+open|开发服务器编译完成是否立即打开页面
 
-#### 栗子
+#### 配置文件例子
 ```
 //.beautyrc.js
 const path = require('path')

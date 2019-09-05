@@ -50,11 +50,12 @@ module.exports = merge(baseConf, {
         contentBase: [path.resolve(`${process.cwd()}/dist`), path.resolve(`${process.cwd()}/public`)],
         compress: true,
         host: ip.address(),
-        port: 9000,
+        port: beautyConf.port || 9000,
         publicPath: beautyConf.publicPath || '/',
         hot: true,
         historyApiFallback: true,
-        stats: 'minimal'
+        stats: 'minimal',
+        open: baseConf.open || false
     },
     plugins: [new webpack.DefinePlugin(beautyConf.define || {})].concat(htmlWebpackPlugin, miniCssExtractPlugin)
 })
