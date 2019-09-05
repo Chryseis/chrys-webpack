@@ -1,5 +1,5 @@
 # Beauty-webpack
-![NPM](https://img.shields.io/npm/l/beauty-webpack)
+![NPM](https://img.shields.io/npm/l/beauty-webpack) ![GitHub package.json version](https://img.shields.io/github/package-json/v/Chryseis/beauty-webpack)
 
 ## Motive
 快速搭建前端项目，减少webpack配置学习成本
