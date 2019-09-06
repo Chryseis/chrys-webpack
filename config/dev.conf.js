@@ -55,7 +55,7 @@ module.exports = merge(baseConf, {
         hot: true,
         historyApiFallback: true,
         stats: 'minimal',
-        open: baseConf.open || false
+        open: beautyConf.open || false
     },
     plugins: [new webpack.DefinePlugin(beautyConf.define || {})].concat(htmlWebpackPlugin, miniCssExtractPlugin)
 })
