@@ -82,6 +82,7 @@ devServer|开发服务器配置|参考[webpack devServer](https://www.webpackjs.
 title|输出页面的title|
 port|开发服务器端口号
 open|开发服务器编译完成是否立即打开页面
+babelPlugins|babel插件引入|```babelPlugins: [["import", {"libraryName": "antd","libraryDirectory": "es","style": true // `style: true` 会加载 less 文件}]]```
 
 #### 配置文件例子
 ```
