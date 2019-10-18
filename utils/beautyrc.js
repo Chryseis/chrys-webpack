@@ -4,6 +4,8 @@ module.exports = function() {
     if (fs.existsSync(`${process.cwd()}/.beautyrc.js`)) {
         return require(`${process.cwd()}/.beautyrc.js`)
     } else {
-        return {}
+        return {
+            isCssModule: true
+        }
     }
 }

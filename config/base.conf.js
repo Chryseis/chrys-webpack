@@ -30,7 +30,7 @@ module.exports = {
                 } : 'style-loader', {
                     loader: 'css-loader',
                     options: {
-                        modules: {
+                        modules: beautyConf.isCssModule && {
                             localIdentName: '[local]__[hash:base64:5]'
                         }
                     }
