@@ -80,10 +80,12 @@ chunks|js分包模块|配合entry
 define|定义项目全局变量|参考[webpack define](https://webpack.js.org/plugins/define-plugin/#root)
 devServer|开发服务器配置|参考[webpack devServer](https://www.webpackjs.com/configuration/dev-server/)
 title|输出页面的title|
-port|开发服务器端口号
+port|开发服务器端口号|默认值：3000
 open|开发服务器编译完成是否立即打开页面
 babelPlugins|babel插件引入|```babelPlugins: [["import", {"libraryName": "antd","libraryDirectory": "es","style": true // `style: true` 会加载 less 文件}]]```
 isCssModule|是否开启css module| 默认值:true
+isRem｜是否启用rem｜默认值：true
+rootFontSize|根元素字体大小｜默认值：75
 
 #### 配置文件例子
 ```
