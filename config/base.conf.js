@@ -108,6 +108,15 @@ module.exports = {
                         name: 'media/[name][hash:7].[ext]'
                     }
                 }]
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)\w*/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: 'font/[name][hash:7].[ext]'
+                    }
+                }]
             }
         ],
     },
