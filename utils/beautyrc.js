@@ -3,7 +3,8 @@ const fs = require('fs')
 const defaultConfig = {
     isCssModule: true,
     isRem: true,
-    rootFontSize: 75
+    rootFontSize: 75,
+    isCompressImg: false
 }
 
 module.exports = function() {
