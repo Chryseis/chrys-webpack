@@ -92,13 +92,13 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                use: [{
+                use: beautyConf.isCompressImg ? [{
                     loader: 'url-loader',
                     options: {
                         limit: 10000,
                         name: 'img/[name][hash:7].[ext]'
                     }
-                }].concat(beautyConf.isCompressImg ? {
+                }, {
                     loader: 'image-webpack-loader',
                     options: {
                         mozjpeg: {
@@ -121,7 +121,13 @@ module.exports = {
                             quality: 75
                         }
                     }
-                } : {})
+                }] : [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000,
+                        name: 'img/[name][hash:7].[ext]'
+                    }
+                }]
             },
             {
                 test: /\.(mp4|avi|mp3)(\?.*)?$/,
