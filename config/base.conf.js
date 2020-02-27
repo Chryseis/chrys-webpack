@@ -43,7 +43,7 @@ module.exports = {
                     }
                 }, {
                     loader: 'less-loader',
-                    options: { javascriptEnabled: true }
+                    options: { javascriptEnabled: true, modifyVars: theme }
                 }],
                 exclude: [path.resolve(`${process.cwd()}/node_modules`)]
             },
@@ -85,7 +85,7 @@ module.exports = {
                     }
                 }, {
                     loader: 'less-loader',
-                    options: { javascriptEnabled: true }
+                    options: { javascriptEnabled: true, modifyVars: theme }
                 }],
                 include: [path.resolve(`${process.cwd()}/node_modules`)],
                 exclude: [path.resolve(`${process.cwd()}/src`)]
