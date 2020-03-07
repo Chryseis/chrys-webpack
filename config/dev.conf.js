@@ -16,7 +16,8 @@ if (isSpa) {
         title: beautyConf.title || '美栗',
         filename: 'index.html',
         template: readTemplateFile(),
-        chunks: beautyConf.chunks || ['vendor', 'beauty']
+        chunks: beautyConf.chunks || ['vendor', 'beauty'],
+        ...beautyConf.htmlPluginsOptions
     })
 } else {
     htmlWebpackPlugin = Object.keys(beautyConf.entry || entry).map(chunkName => {

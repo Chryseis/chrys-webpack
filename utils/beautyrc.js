@@ -4,7 +4,8 @@ const defaultConfig = {
     isCssModule: true,
     isRem: true,
     rootFontSize: 75,
-    isCompressImg: false
+    isCompressImg: false,
+    htmlPluginsOptions:{}
 }
 
 module.exports = function() {
